@@ -19,18 +19,27 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('mahasiswa', 'MahasiswaController@index');
 
-Route::get('mahasiswa-tambah','MahasiswaController@tambah');
+//Mahasiswa
+Route::get('mahasiswa', 'MahasiswaController@index')->name('mahasiswa');
+Route::get('mahasiswa-tambah', 'MahasiswaController@tambah')->name('tbh.mhs');
+Route::post('smpn-mahasiswa','MahasiswaController@store')->name('simpan.mahasiswa');
+Route::get('edt-mhs/{id}','MahasiswaController@edit')->name('edt.mhs');
+Route::post('updt-mhs/{id}','MahasiswaController@update')->name('updt.mhs');
+Route::get('dlt-mhs/{id}','MahasiswaController@delete')->name('dlt.mhs');
 
-Route::get('makul','MakulController@index')->name('index.makul');
+//Makul
+Route::get('makul', 'MakulController@index')->name('makul');
+Route::get('makul-tbh','MakulController@tambah')->name('tbh.makul');
+Route::post('makul-save','MakulController@store')->name('save.makul');
+Route::get('makul-edit/{id}','MakulController@edit')->name('edit.makul');
+Route::post('makul-updt/{id}','MakulController@update')->name('updt.makul');
+Route::get('dlt-makul/{id}','MakulController@delete')->name('dlt.makul');
 
-Route::get('makul-tambah','MakulController@tambah')->name('tmbh.makul');
-
-Route::post('simpan-makul','MakulController@simpan')->name('save.makul');
-
-Route::get('edit-makul/{id}','MakulController@edit')->name('makul.edit');
-
-Route::post('update-makul/{id}','MakulController@update')->name('makul.update');
-
-Route::get('hapus-makul/{id}','MakulController@delete')->name('makul.hapus');
+//Nilai
+Route::get('nilai', 'NilaiController@index')->name('nilai');
+Route::get('nilai-tbh','NilaiController@tambah')->name('tbh.nilai');
+Route::post('nilai-save','NilaiController@store')->name('save.nilai');
+Route::get('nilai-edit/{id}','NilaiController@edit')->name('edit.nilai');
+Route::post('nilai-updt/{id}','NilaiController@update')->name('updt.nilai');
+Route::get('dlt-nilai/{id}','NilaiController@delete')->name('dlt.nilai');
